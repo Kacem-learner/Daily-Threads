@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm
 
-RUN docker-php-ext-install pdo pdo_pgsql pgsql
+RUN docker-php-ext-install pdo pdo_pgsql
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -24,7 +24,6 @@ RUN npm install
 RUN npm run build
 
 RUN cp .env.example .env || true
-RUN php artisan key:generate || true
 
 EXPOSE 10000
 
