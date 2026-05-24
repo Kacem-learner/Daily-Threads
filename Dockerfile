@@ -6,8 +6,11 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zip \
     libpng-dev \
+    libpq-dev \
     nodejs \
     npm
+
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
