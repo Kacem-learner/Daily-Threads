@@ -4,42 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\user;
-use App\Models\product;
-use App\Models\cart;
-use App\Models\order;
 use Illuminate\Support\Facades\DB;
 
+use App\Models\User;
+use App\Models\Product;
+use App\Models\Cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
     // ---------------- HOME PAGE ----------------
-   public function index()
-{
-    $data = product::paginate(6);
+    public function index()
+    {
+        $data = Product::paginate(6);
 
-    $newProducts = product::where('type', 'new')->take(3)->get();
-    $saleProducts = product::where('type', 'sale')->take(3)->get();
+        $newProducts = Product::where('type', 'new')->take(3)->get();
+        $saleProducts = Product::where('type', 'sale')->take(3)->get();
 
-    $count = 0;
+        $count = 0;
 
-    if (auth()->check()) {
-        $count = cart::where('phone', auth()->user()->phone)->count();
+        if (auth()->check()) {
+            $count = Cart::where('phone', auth()->user()->phone)->count();
+        }
+
+        return view('user.home', compact('data', 'newProducts', 'saleProducts', 'count'));
     }
 
-    return view('user.home', compact('data', 'newProducts', 'saleProducts', 'count'));
-}
     // ---------------- REDIRECT ----------------
-  public function redirect()
-{
-    $user = auth()->user();
+    public function redirect()
+    {
+        $user = auth()->user();
 
-    if ($user->usertype == '1') {
-        return view('admin.home');
+        if ($user->usertype == '1') {
+            return view('admin.home');
+        }
+
+        return redirect('/');
     }
-
-    return redirect('/');
-}
 
     // ---------------- SEARCH ----------------
     public function search(Request $request)
@@ -50,21 +51,21 @@ class HomeController extends Controller
             return redirect('/');
         }
 
-        $data = product::where('title', 'LIKE', '%' . $search . '%')
+        $data = Product::where('title', 'LIKE', '%' . $search . '%')
             ->paginate(6);
 
-        $newProducts = product::where('type', 'new')
+        $newProducts = Product::where('type', 'new')
             ->take(3)
             ->get();
 
-        $saleProducts = product::where('type', 'sale')
+        $saleProducts = Product::where('type', 'sale')
             ->take(3)
             ->get();
 
         $count = 0;
 
         if (auth()->check()) {
-            $count = cart::where('phone', auth()->user()->phone)->count();
+            $count = Cart::where('phone', auth()->user()->phone)->count();
         }
 
         return view('user.home', compact(
@@ -83,9 +84,9 @@ class HomeController extends Controller
         }
 
         $user = auth()->user();
-        $product = product::find($id);
+        $product = Product::find($id);
 
-        $cart = new cart;
+        $cart = new Cart;
 
         $cart->name = $user->name;
         $cart->phone = $user->phone;
@@ -105,8 +106,8 @@ class HomeController extends Controller
     {
         $user = auth()->user();
 
-        $cart = cart::where('phone', $user->phone)->get();
-        $count = cart::where('phone', $user->phone)->count();
+        $cart = Cart::where('phone', $user->phone)->get();
+        $count = Cart::where('phone', $user->phone)->count();
 
         return view('user.showcart', compact('count', 'cart'));
     }
@@ -114,7 +115,7 @@ class HomeController extends Controller
     // ---------------- REMOVE CART ----------------
     public function removecart($id)
     {
-        $cart = cart::find($id);
+        $cart = Cart::find($id);
         $cart->delete();
 
         return redirect()->back()->with('message', 'Item removed from cart');
@@ -127,7 +128,7 @@ class HomeController extends Controller
 
         foreach ($request->product_title as $key => $value) {
 
-            $order = new order;
+            $order = new Order;
 
             $order->user_id = Auth::id();
 
@@ -153,15 +154,15 @@ class HomeController extends Controller
             ->with('message', 'Order confirmed successfully');
     }
 
-    // ---------------- PRODUCTS PAGE (PAGINATION ONLY) ----------------
+    // ---------------- PRODUCTS PAGE ----------------
     public function products()
     {
-        $data = product::paginate(6);
+        $data = Product::paginate(6);
 
         $count = 0;
 
         if (auth()->check()) {
-            $count = cart::where('phone', auth()->user()->phone)->count();
+            $count = Cart::where('phone', auth()->user()->phone)->count();
         }
 
         return view('user.products', compact('data', 'count'));
