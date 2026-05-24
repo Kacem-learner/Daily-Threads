@@ -71,6 +71,11 @@ Route::get('/aboutus', function () {
     return view('user.aboutus');
 });
 
+Route::get('/optimize', function () {
+    Artisan::call('optimize:clear');
+    return 'Cleared!';
+});
+
 Route::get('/migrate', function () {
     Artisan::call('migrate', ['--force' => true]);
     return 'Migration completed';
