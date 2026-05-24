@@ -26,13 +26,13 @@
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet"
-          href="{{ secure_asset('assets/css/fontawesome.css') }}">
+      href="{{ secure_asset('assets/css/fontawesome.css') }}">
 
     <link rel="stylesheet"
-          href="{{ secure_asset('assets/css/templatemo-sixteen.css') }}">
+      href="{{ secure_asset('assets/css/templatemo-sixteen.css') }}">
 
     <link rel="stylesheet"
-          href="{{ secure_asset('assets/css/owl.css') }}">
+      href="{{ secure_asset('assets/css/owl.css') }}">
 
     <style>
 
