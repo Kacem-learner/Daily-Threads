@@ -1,25 +1,3 @@
-<!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-      rel="stylesheet">
-
-<!-- FONT AWESOME -->
-<link rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-
-<!-- BOOTSTRAP -->
-<link href="vendor/bootstrap/css/bootstrap.min.css" 
-    rel="stylesheet">
-
-<!-- OWL -->
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-
-<!-- CUSTOM CSS -->
-<link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/templatemo-sixteen.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
-
-
 <nav class="navbar navbar-expand-lg">
     
     <div class="container">
