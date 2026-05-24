@@ -17,18 +17,18 @@
           href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
 
     <!-- BOOTSTRAP -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}"
+    <link href="{{ secure_asset('vendor/bootstrap/css/bootstrap.min.css') }}"
           rel="stylesheet">
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet"
-          href="{{ asset('assets/css/fontawesome.css') }}">
+          href="{{ secure_asset('assets/css/fontawesome.css') }}">
 
     <link rel="stylesheet"
-          href="{{ asset('assets/css/templatemo-sixteen.css') }}">
+          href="{{ secure_asset('assets/css/templatemo-sixteen.css') }}">
 
     <link rel="stylesheet"
-          href="{{ asset('assets/css/owl.css') }}">
+          href="{{ secure_asset('assets/css/owl.css') }}">
 
     <style>
        .latest-products{
@@ -228,9 +228,9 @@ header{
 </footer>
 
 <!-- SCRIPTS -->
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ secure_asset('vendor/jquery/jquery.min.js') }}"></script>
 
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ secure_asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
 </html>
