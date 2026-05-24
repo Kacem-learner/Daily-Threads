@@ -7,8 +7,8 @@
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
 
 <!-- BOOTSTRAP -->
-<link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}"
-      rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" 
+    rel="stylesheet">
 
 <!-- OWL -->
 <link rel="stylesheet"
