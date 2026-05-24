@@ -70,3 +70,8 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/aboutus', function () {
     return view('user.aboutus');
 });
+
+Route::get('/migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migration completed';
+});
