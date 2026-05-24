@@ -9,25 +9,30 @@
     <title>Daily Threads</title>
 
     <!-- GOOGLE FONT -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" 
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+          rel="stylesheet">
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
 
     <!-- BOOTSTRAP -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}"
-      rel="stylesheet">
+    <link href="{{ secure_asset('vendor/bootstrap/css/bootstrap.min.css') }}"
+          rel="stylesheet">
 
     <!-- OWL -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet"
+          href="{{ secure_asset('assets/css/fontawesome.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ secure_asset('assets/css/templatemo-sixteen.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ secure_asset('assets/css/owl.css') }}">
 
     <style>
 
@@ -329,9 +334,9 @@
 </footer>
 
 <!-- SCRIPTS -->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="{{ secure_asset('vendor/jquery/jquery.min.js') }}"></script>
 
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ secure_asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
